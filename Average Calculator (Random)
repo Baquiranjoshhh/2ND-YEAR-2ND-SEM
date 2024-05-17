@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 03:07:18 2024
+
+@author: JOSHUA
+"""
+
+import random
+num1=random.uniform(1, 100)
+num2=random.uniform(1, 100)
+num3=random.uniform(1, 100)
+num4=random.uniform(1, 100)
+num5=random.uniform(1, 100)
+
+
+print("Random Number#1: ", round(num1, 2))
+print("Random Number#2: ", round(num2, 2))
+print("Random Number#3: ", round(num3, 2))
+print("Random Number#4: ", round(num4, 2))
+print("Random Number#5: ", round(num5, 2))
+
+average=(num1+num2+num3+num4+num5)/5
+print("The total average is: ", average)
