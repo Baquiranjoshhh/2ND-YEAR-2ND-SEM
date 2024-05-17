@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 02:15:07 2024
+
+@author: JOSHUA
+"""
+
+power=eval(input("Please enter the power you want to input - "))
+answer=2**power
+print("The answer is - ", answer)
+print("The last digit is -", 5(answer %  10))
