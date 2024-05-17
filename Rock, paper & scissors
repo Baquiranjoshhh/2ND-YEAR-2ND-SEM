@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 01:33:16 2024
+
+@author: JOSHUA
+"""
+
+import random  # Add this line to import the random module
+
+game = ["ROCK", "PAPER", "SCISSORS"]
+
+while True: 
+    player_input = input("Type your choice between ROCK, PAPER, or SCISSORS (use capital letters only, press 0 to quit): ") 
+    
+    if player_input == "0":
+        print("Thank you for playing the game.")
+        break
+    
+    computer_player = random.choice(game)  # Use random.choice to select a random item from the list
+    print("Computer Answer: ", computer_player) 
+        
+    if player_input == computer_player:
+        print("It's a tie!")
+    
+    elif player_input == 'ROCK' and computer_player == 'SCISSORS':
+        print("You win!")
+    
+    elif player_input == 'PAPER' and computer_player == 'ROCK':
+        print("You win!")
+    
+    elif player_input == 'SCISSORS' and computer_player == 'PAPER':
+        print("You win!")
+           
+    else:
+        print("You lose")
