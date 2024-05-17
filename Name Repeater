@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 03:09:23 2024
+
+@author: JOSHUA
+"""
+
+name=input("What is your name? : ")
+times=input("How many times do you want to repeat it? : ")
+
+for i in range(0,eval(times)):
+    print("My name is " + name)
