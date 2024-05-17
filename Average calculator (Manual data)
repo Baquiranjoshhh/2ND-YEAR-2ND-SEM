@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 03:27:39 2024
+
+@author: JOSHUA
+"""
+
+numbers = []
+num = int(input("Enter a number (enter 0 to terminate the list): "))
+while num != 0:
+    numbers.append(num)
+    num = int(input("Enter a number (enter 0 to terminate the list): "))
+
+n = len(numbers)
+total = sum(numbers)
+avg = total/n
+
+print("Total numbers entered (excluding the termination 0): ", n)
+print("Sum of all entered numbers: ", total)
+print("Average of all entered numbers (excluding the termination 0): ", avg)
