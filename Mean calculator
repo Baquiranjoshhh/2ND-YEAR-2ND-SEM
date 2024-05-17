@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 03:29:39 2024
+
+@author: JOSHUA
+"""
+
+count=0
+sum=0
+while True:
+    num=input("Please enter a number (Press 0 to stop): ")
+    if num=="0":
+        break
+    else:
+        sum += int(num)
+        count += 1
+
+if count>0:
+    mean=sum/count
+    print("Count: ", count)
+    print("Sum: ", sum)
+    print("Mean: ", mean)
+else:
+    print("No numbers were entered. Please enter a number/s")
