@@ -1,0 +1,111 @@
+import pandas as pd
+
+n=0
+N=""
+e=""
+z=""
+
+
+print("Sample Size Calculator")
+print()
+print("Identify the sample size for your research depending on the data you have.")
+print("You can choose from the two options. Type exit to log out.")
+print()
+print("Code \t Name \t\t\t\t\t\t\t Required Data")
+print()
+print("SS1 \t Slovin's Formula \t\t\t\t Population, Margin of Error")
+print("SS2 \t Unknown population formula \t z-score, Margin of Error, Standard Deviation")
+print("SS3 \t Known population formula \t\t z-score, Margin of Error, Standard Deviation, Population Size")
+print()
+
+while True:
+    code=input("Enter the code: ")
+    if code=="SS1" or code=="ss1":
+        choice=eval(input("Do you wish to (1)input the data or (2)import data from excel?: "))
+        if choice==1:
+            N=eval(input("Enter the number of population: "))
+            e=eval(input("Enter the margin of error: "))
+            n = N / (1 + N*(e*e))
+            print("The recommended sample size is", round(n, 0))
+            
+        elif choice==2:
+            excel_file = input('Enter path to Excel file: ')
+            file = pd.read_excel(excel_file)
+            column_names = ["Population","Margin of Error","Z-score","Standard Deviation"]
+            file.columns = column_names
+            e=(file['Margin of Error']*file['Margin of Error'])
+            denominator=(1 +file['Population']*e)
+            n=(file['Population'])/denominator
+            file['Answer'] = n
+            print(file)
+            
+        else:
+            print("Invalid Input! Choose between 1 and 2 only.")
+            continue
+        
+    elif code=="SS2" or code=="ss2":
+        choice=eval(input("Do you wish to (1)input the data or (2)import data from excel?: "))
+        if choice==1:
+            z=eval(input("Enter the z-score: "))
+            e=eval(input("Enter the margin of error: "))
+            p=eval(input("Enter the standard deviation: "))
+            n = ((z**2)*p*(1-p))/(e**2)
+            print("The recommended sample size is", round(n, 0))
+            
+        elif choice==2:
+             excel_file = input('Enter path to Excel file: ')
+             file = pd.read_excel(excel_file)
+             column_names = ["Population","Margin of Error","Z-score","Standard Deviation"]
+             file.columns = column_names
+             z=(file['Z-score']**2)
+             p=file["Standard Deviation"]*(1-file["Standard Deviation"])
+             numerator=z*p
+             denominator=file['Margin of Error']**2
+             n=numerator/denominator
+             file['Answer'] = n
+             print(file)
+             
+        else:
+            print("Invalid Input! Choose between 1 and 2 only.")
+            continue 
+             
+    elif code=="SS3" or code=="ss3":
+         choice=eval(input("Do you wish to (1)input the data or (2)import data from excel?: "))
+         if choice==1:
+             z=eval(input("Enter the z-score: "))
+             e=eval(input("Enter the margin of error: "))
+             p=eval(input("Enter the standard deviation: "))
+             ps=eval(input("Enter the number of population: "))
+             numerator = ((z**2)*p*(1-p))/(e**2)
+             denominator = 1 + ((z**2)*p*(1-p))/((e**2)*ps)
+             n = (numerator)/(denominator)
+             print("The recommended sample size is", round(n, 2))
+             
+         elif choice==2:
+               excel_file = input('Enter path to Excel file: ')
+               file = pd.read_excel(excel_file)
+               column_names = ["Population","Margin of Error","Z-score","Standard Deviation"]
+               file.columns = column_names
+               z=(file['Z-score']**2)
+               p=file["Standard Deviation"]*(1-file["Standard Deviation"])
+               numerator=z*p
+               denominator=file['Margin of Error']**2
+               x=numerator/denominator
+               N=file['Margin of Error']**2*file['Population']
+               y=numerator/N
+               n=x/(1+y)
+               file['Answer'] = n
+               print(file)
+        
+         else:
+            print("Invalid Input! Choose between 1 and 2 only.")
+            continue
+ 
+    elif code=="exit" or code=="EXIT" :
+        print("Thank you for using the Sample Size Calculator")
+        break
+    
+    else:
+        print("Invalid Input! Try Again.")
+        continue
+    
