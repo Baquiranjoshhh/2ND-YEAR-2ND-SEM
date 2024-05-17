@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 03:20:41 2024
+
+@author: JOSHUA
+"""
+
+import random
+
+score=0
+
+for num in range(10):
+    x = random.randint(1,10)
+    y = random.randint(1,10)
+
+    multiplication = x*y
+    print ("\nMultiply:", x, "x", y, "?")
+    answer=int(input())
+
+    if answer == multiplication:
+        print ("Your answer is correct!")
+        score += 1
+      
+    else:
+        print ("Your answer is wrong. The correct answer is ",multiplication)
+
+print("\n\nYou got", score, "out of 10 questions correct.")
