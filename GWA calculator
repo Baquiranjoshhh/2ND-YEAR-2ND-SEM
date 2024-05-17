@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 02:01:29 2024
+
+@author: JOSHUA
+"""
+
+print ("Welcome to the General Weighted Average (GWA) Calculator!\n")
+
+gradexunit = 0
+total = 0
+average = 0
+
+grade=eval(input("\nEnter the grade (or 0 to exit): "))
+while grade != 0:
+    unit = eval(input("\nEnter the number of units: "))
+    gradexunit += grade * unit
+    total += unit
+    average += 1
+    grade=eval(input("\nEnter the grade (or 0 to exit): "))
+
+if average > 0:
+    gwa = gradexunit / total
+    print("Your GWA is ",round(gwa,2),".Thank you for using the GWA calculator!")
+    5
