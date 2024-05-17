@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 03:11:41 2024
+
+@author: JOSHUA
+"""
+
+x=int(input("How many numbers do you want to see in Fibonacci numbers?:  "))
+a=0
+b=1
+for i in range(x):
+         c=a
+         a=b
+         b=c+b
+         print(c)
