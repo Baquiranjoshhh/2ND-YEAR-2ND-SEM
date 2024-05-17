@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 03:16:16 2024
+
+@author: JOSHUA
+"""
+
+import sys
+from random import randint
+
+num=randint(1,3)
+
+print("This program is a guessing game! There are only 3 chances to play this game.")
+
+
+
+for i in range(3):
+    guess=eval(input("Type your guess number between 1 and 20: "))
+    if guess < num:
+        print("Your guess was lower. Please try again.")
+    elif guess > num:
+        print("Your guess was higher. Please try again.")
+    elif guess > 20:
+        print("Invalid! Guess from number between 1 and 20 only.")
+    else:
+        print("Congratulations, You got it! ")
+        sys.exit()
+       
+  
+print("Game over! The correct answer is: ",num)
