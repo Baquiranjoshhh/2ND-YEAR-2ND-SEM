@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 03:23:53 2024
+
+@author: JOSHUA
+"""
+
+current = int(input("Enter hour (1-12): "))
+am_pm = input("am (1) or pm (2)? ")
+future = int(input("How many hours ahead? "))
+
+future_hour = (current + future) % 12
+if future_hour == 0:
+    future_hour = 12
+
+if am_pm == "1":
+    total_hours = current + future
+    if total_hours <= 12:
+        future_am_pm = "pm"
+    else:
+        future_am_pm = "am"
+
+if am_pm == "2":
+    total_hours = current + future - 12
+    if total_hours < 12:
+        future_am_pm = "am"
+    else:
+        future_am_pm = "pm"
+
+print("New hour:", future_hour, future_am_pm)
